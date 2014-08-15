@@ -15,6 +15,7 @@ class synapse::params {
       $service_manage   = true
       $service_ensure   = 'running'
       $service_enable   = true
+      $service_upstart  = false
       $config_file      = '/etc/synapse/synapse.conf.json'
       $config_dir       = '/etc/synapse/conf.d/'
       $purge_config     = true

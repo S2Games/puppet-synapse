@@ -8,23 +8,23 @@
 #   Explanation of what this parameter affects and what it defaults to.
 #
 class synapse (
-  $package_ensure   = $synapse::params::package_ensure,
-  $package_provider = $synapse::params::package_provider,
-  $package_name     = $synapse::params::package_name,
-  $service_manage   = $synapse::params::service_manage,
-  $service_ensure   = $synapse::params::service_ensure,
-  $service_enable   = $synapse::params::service_enable,
-  $config_file      = $synapse::params::config_file,
-  $config_dir       = $synapse::params::config_dir,
-  $purge_config     = $synapse::params::purge_config,
-  $haproxy_ensure   = $synapse::params::haproxy_ensure, 
-  $user             = $synapse::params::user,
-  $group                   = $synapse::params::group,
-  $stats_socket            = $synapse::params::stats_socket,
-  $haproxy_daemon          = true,
-  $haproxy_reload_command  = $synapse::params::haproxy_reload_command,
-  $haproxy_bind_address    = 'localhost',
-  $haproxy_defaults        = [
+  $package_ensure         = $synapse::params::package_ensure,
+  $package_provider       = $synapse::params::package_provider,
+  $package_name           = $synapse::params::package_name,
+  $service_manage         = $synapse::params::service_manage,
+  $service_ensure         = $synapse::params::service_ensure,
+  $service_enable         = $synapse::params::service_enable,
+  $config_file            = $synapse::params::config_file,
+  $config_dir             = $synapse::params::config_dir,
+  $purge_config           = $synapse::params::purge_config,
+  $haproxy_ensure         = $synapse::params::haproxy_ensure,
+  $user                   = $synapse::params::user,
+  $group                  = $synapse::params::group,
+  $stats_socket           = $synapse::params::stats_socket,
+  $haproxy_daemon         = true,
+  $haproxy_reload_command = $synapse::params::haproxy_reload_command,
+  $haproxy_bind_address   = 'localhost',
+  $haproxy_defaults       = [
     'log      global',
     'option   dontlognull',
     'maxconn  2000',
@@ -51,7 +51,7 @@ class synapse (
 
   class { 'synapse::install': } ->
   class { 'synapse::config':
-    haproxy_daemon => $haproxy_daemon,
+    haproxy_daemon         => $haproxy_daemon,
     haproxy_reload_command => $haproxy_reload_command,
     haproxy_bind_address   => $haproxy_bind_address
   }

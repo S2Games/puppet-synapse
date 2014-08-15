@@ -55,7 +55,6 @@ define synapse::service (
   $ensure = 'present',
   $target = "/etc/synapse/conf.d/${name}.json",
 ) {
-
   include stdlib
   validate_array($default_servers)
   validate_hash($discovery)
@@ -72,6 +71,4 @@ define synapse::service (
   if str2bool($synapse::service_manage) {
     File[$target] ~> Service['synapse']
   }
-
 }
-

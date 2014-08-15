@@ -7,9 +7,6 @@ class synapse::config (
   $haproxy_reload_command,
   $haproxy_bind_address
 ) {
-
-  # TODO: something?
-  # In the case were we are using the default location
   if $::synapse::config_file == $::synapse::params::config_file {
     # Make the parent directory
     file { '/etc/synapse/':
@@ -30,6 +27,4 @@ class synapse::config (
     recurselimit => '1',
     purge        => $synapse::purge_config,
   }
-
-
 }
